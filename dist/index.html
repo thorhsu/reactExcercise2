@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Members management</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="./js/jquery.js"><\/script>')
+    </script>
+    <script src="./js/bootstrap.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./js/holder.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+    <link rel="stylesheet" href="./jqueryui/jquery-ui.css">
+    <script src="./jqueryui/jquery-ui.js"></script>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./css/sidebar.css" rel="stylesheet">
+    <script src="./js/accupoints.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/css/bootstrap-dialog.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.9/js/bootstrap-dialog.min.js"></script>
+    <style>
+      .voffset  { margin-top: 2px; }
+      .voffset1 { margin-top: 5px; }
+      .voffset2 { margin-top: 10px; }
+      .voffset3 { margin-top: 15px; }
+      .voffset4 { margin-top: 30px; }
+      .voffset5 { margin-top: 40px; }
+      .voffset6 { margin-top: 60px; }
+      .voffset7 { margin-top: 80px; }
+      .voffset8 { margin-top: 100px; }
+      .voffset9 { margin-top: 150px; }
+       #tooltip {
+          position: fixed;
+          margin: 5% auto;
+          left: 0;
+          right: 0;
+          top: 200px;
+          background-color: white;
+          width: 500px;
+          height: 300px;
+          padding: 10px;
+          z-index: 2;
+          border-radius: 10px;
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+       }
+
+    
+       
+
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./index.html">Members List</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">                    
+                    <li><a href="#" class="file_load" id="thumbnail">Member List</a></li>                    
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Thor<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Personal Profile</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div id="wrapper" class="container-fluid" style="margin-top: 50px;">
+        <!-- Left Sidebar -->
+        <div id="left-sidebar-wrapper">
+
+            <h4><b></b></h4>
+            <div id="placeholder">
+            </div>
+        </div>
+
+        <!-- /#left-sidebar-wrapper -->
+        <!-- Right Sidebar -->
+        <div id="right-sidebar-wrapper">
+
+            <h4><b></b></h4>
+            <div id="placeholder">
+
+            </div>
+        </div>
+        <!-- /#right-sidebar-wrapper -->
+
+        <!-- Toggle Buttons -->
+        <a href="#left-menu-toggle" class="btn btn-link btn-md" id="left-menu-toggle"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a href="#right-menu-toggle" class="btn btn-link btn-md" id="right-menu-toggle"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 main text-center" id="main-content">
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+    <script>
+        $(".file_load").click(function () {
+            var load_file = $(this).attr("id") + ".html";
+            $.get("./" + load_file, function (data) {
+                $("#main-content").html(data);
+            });
+        });
+    </script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#left-menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("left-toggled");
+        });
+
+        $("#right-menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("right-toggled");
+        });
+    </script>
+
+</body>
+
+</html>

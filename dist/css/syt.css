@@ -1,0 +1,7 @@
+.glyphicon-remove-circle {
+   cursor: pointer;
+}
+
+#tabs .row:hover{
+	background-color: #dff0d8;
+}
