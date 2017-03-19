@@ -1,6 +1,7 @@
 var MemberDescription = React.createClass({
   close: function(e){
     e.preventDefault();
+    e.stopPropagation();
     this.props.close();
   },
   render:function(){

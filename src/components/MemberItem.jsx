@@ -9,16 +9,15 @@ var MemberItem = React.createClass({
     };
   },
   openDetail: function(){
-    if(!this.state.closeDetail){
+    console.log(12345);
        var data = this.props.data;
        this.setState({
          data: data,
          description: true
        })
-    }
+
   },
-  close: function(){
-    this.state.closeDetail = true;
+  close: function(){    
     this.setState({
       data: {},
       description: false

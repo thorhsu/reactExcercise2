@@ -152,16 +152,14 @@
 	    };
 	  },
 	  openDetail: function () {
-	    if (!this.state.closeDetail) {
-	      var data = this.props.data;
-	      this.setState({
-	        data: data,
-	        description: true
-	      });
-	    }
+	    console.log(12345);
+	    var data = this.props.data;
+	    this.setState({
+	      data: data,
+	      description: true
+	    });
 	  },
 	  close: function () {
-	    this.state.closeDetail = true;
 	    this.setState({
 	      data: {},
 	      description: false
@@ -235,6 +233,7 @@
 	
 	  close: function (e) {
 	    e.preventDefault();
+	    e.stopPropagation();
 	    this.props.close();
 	  },
 	  render: function () {
