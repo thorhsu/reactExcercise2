@@ -255,17 +255,12 @@
 	        { width: "100%" },
 	        React.createElement(
 	          "th",
-	          null,
+	          { colSpan: "3", className: "text-center" },
 	          React.createElement(
-	            "th",
-	            { colspan: "2" },
-	            React.createElement(
-	              "p",
-	              { className: "text-center" },
-	              "Personal Profile"
-	            )
-	          ),
-	          React.createElement("th", null)
+	            "h2",
+	            null,
+	            "Personal Profile"
+	          )
 	        ),
 	        React.createElement(
 	          "tr",

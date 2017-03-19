@@ -11,10 +11,7 @@ var MemberDescription = React.createClass({
             <span data-aria-hidden="true">&times;</span>
          </button>
          <table width="100%">
-            <th>
-              <th colspan="2"><p className="text-center">Personal Profile</p></th>
-              <th></th>
-            </th>
+            <th colSpan="3" className="text-center"><h2>Personal Profile</h2></th>
             <tr>
                <td rowSpan="9" ><img src={this.props.data.picture.large} /></td>
                <td><b>Title:</b></td><td>{this.props.data.name.title}</td>
